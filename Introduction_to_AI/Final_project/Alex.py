@@ -14,9 +14,11 @@ voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)
 engine.setProperty('rate', newVoiceRate)
 
+
 def talk(text):
     engine.say(text)
     engine.runAndWait()
+
 
 def take_command():
     try:
@@ -25,9 +27,12 @@ def take_command():
             voice = listener.listen(source)
             command = listener.recognize_google(voice)
             print(command)
-            return command
-    except:
-        print("repeat the question again")
+            return command.lower()  # Convert the command to lowercase
+
+    except Exception as e:
+        print("An error occurred:", str(e))
+        print("Please repeat the question again")
+        return ""  # Return an empty string if an error occurs
 
 
 def run_alexa():
@@ -41,7 +46,8 @@ def run_alexa():
         talk("I'm fine, thank you.")
 
     elif "your name" in command.lower():
-        talk("My name is Alex, it is pleasure to meet you. I'm like the alexa's older brother. But, I'm not as intelligence as her")
+        talk(
+            "My name is Alex, it is pleasure to meet you. I'm like the alexa's older brother. But, I'm not as intelligence as her")
 
     elif "play music" in command.lower():
         talk("What song would you like me to play?")
@@ -84,30 +90,14 @@ def run_alexa():
     else:
         talk('please say the command again')
 
+
 if __name__ == "__main__":
 
     while True:
         run_alexa()
-
-
-
-
-
 
 """
 
 Let's learn all about AI
 
 """
-
-
-
-
-
-
-
-
-
-
-
-
