@@ -2,6 +2,7 @@
 """
 
 First you have to install below libraries:
+To install a library in python, you should open your terminal in pycharm and type: "pip install "the_name_of_the_library" "
 
 pip install SpeechRecognition
 (a Python library that allows you to recognize and transcribe speech from various sources)
@@ -31,7 +32,6 @@ import speech_recognition as sr
 import pyttsx3
 import pywhatkit
 import datetime
-import wikipedia
 import pyjokes
 import webbrowser
 
